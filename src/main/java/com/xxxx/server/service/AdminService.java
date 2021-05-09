@@ -3,8 +3,10 @@ package com.xxxx.server.service;
 import com.xxxx.server.dto.RespBean;
 import com.xxxx.server.entity.Admin;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.xxxx.server.entity.Menu;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * <p>
@@ -32,5 +34,6 @@ public interface AdminService extends IService<Admin> {
      * @return
      */
     Admin getAminByUserName(String username);
+
 
 }

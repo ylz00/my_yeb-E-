@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.xxxx.server.config.security.JwtTokenUitl;
 import com.xxxx.server.dto.RespBean;
 import com.xxxx.server.entity.Admin;
+import com.xxxx.server.entity.Menu;
 import com.xxxx.server.mapper.AdminMapper;
 import com.xxxx.server.service.AdminService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -19,6 +20,7 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -89,6 +91,7 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
         return adminMapper.selectOne(new QueryWrapper<Admin>().eq("username",username)
         .eq("enabled",true));
     }
+
 
 
 }

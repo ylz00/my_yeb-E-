@@ -45,7 +45,7 @@ public class Swagger2Config {
     private List<ApiKey> securitySchemes(){
         //设置请求头信息
         ArrayList<ApiKey> result = new ArrayList<>();
-        ApiKey apiKey=new ApiKey("Autorization","Autorization","Header");
+        ApiKey apiKey=new ApiKey("Authorization","Authorization","Header");
         result.add(apiKey);
         return result;
     }
@@ -64,13 +64,11 @@ public class Swagger2Config {
     }
 
     private List<SecurityReference> defaultAuth() {
-        List<SecurityReference> result =new ArrayList<>();
-        AuthorizationScope authorizationScope =new AuthorizationScope("global",
-                "accessEverything");
-        AuthorizationScope[] authorizationScopes=new AuthorizationScope[1];
-        authorizationScopes[0]=authorizationScope;
+        List<SecurityReference> result = new ArrayList<>();
+        AuthorizationScope authorizationScope = new AuthorizationScope("global", "accessEverything");
+        AuthorizationScope[] authorizationScopes = new AuthorizationScope[1];
+        authorizationScopes[0] = authorizationScope;
         result.add(new SecurityReference("Authorization",authorizationScopes));
         return result;
-
     }
 }
