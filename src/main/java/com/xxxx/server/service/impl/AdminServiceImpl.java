@@ -1,12 +1,12 @@
 package com.xxxx.server.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.toolkit.StringUtils;
-import com.xxxx.server.config.security.JwtTokenUitl;
+import com.xxxx.server.config.security.component.JwtTokenUitl;
 import com.xxxx.server.dto.RespBean;
 import com.xxxx.server.entity.Admin;
-import com.xxxx.server.entity.Menu;
+import com.xxxx.server.entity.Role;
 import com.xxxx.server.mapper.AdminMapper;
+import com.xxxx.server.mapper.RoleMapper;
 import com.xxxx.server.service.AdminService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +44,9 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
     private JwtTokenUitl jwtTokenUtil;
     @Value("${jwt.tokenHead}")
     private String tokenHead;
+
+    @Autowired
+    private RoleMapper roleMapper;
 
     /**
      * 登录之后返回token
@@ -92,6 +95,15 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
         .eq("enabled",true));
     }
 
+    /**
+     * 根据用户id查询角色列表
+     * @param adminId
+     * @return
+     */
+    @Override
+    public List<Role> getRoles(Integer adminId) {
+        return roleMapper.getRoles(adminId);
+    }
+    }
 
 
-}

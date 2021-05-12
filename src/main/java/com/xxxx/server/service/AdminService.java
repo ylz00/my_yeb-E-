@@ -4,6 +4,7 @@ import com.xxxx.server.dto.RespBean;
 import com.xxxx.server.entity.Admin;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.xxxx.server.entity.Menu;
+import com.xxxx.server.entity.Role;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -35,5 +36,10 @@ public interface AdminService extends IService<Admin> {
      */
     Admin getAminByUserName(String username);
 
-
+    /**
+     * 根据用户id查询角色列表
+     * @param adminId
+     * @return
+     */
+    List<Role> getRoles(Integer adminId);
 }
